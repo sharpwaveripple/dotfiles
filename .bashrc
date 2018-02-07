@@ -112,20 +112,37 @@ if ! shopt -oq posix; then
   fi
 fi
 
+shopt -s histappend # Append to the history file, don't overwrite it
+shopt -s cmdhist # Save multi-line commands as one command
+shopt -s checkwinsize # Update window size after every command
+PROMPT_COMMAND='history -a' # Record each line as it gets issued
+
+# Huge history. Doesn't appear to slow things down, so why not?
+HISTSIZE=500000
+HISTFILESIZE=100000
+HISTCONTROL="erasedups:ignoreboth" # Avoid duplicate entries
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear" # Don't record some commands
+
+shopt -s dirspell 2> /dev/null # Correct spelling errors during tab-completion
+shopt -s cdspell 2> /dev/null # Correct spelling errors in arguments supplied to cd
+
+bind Space:magic-space # Typing !!<space> will replace the !! with your last command
+bind "set bell-style none"
+
+. /etc/fsl/5.0/fsl.sh
+
+export PATH="/usr/local/MATLAB/R2017a/bin:$PATH"
+alias vi="/home/sharpwaveripple/bin/nvim.appimage"
+alias vim="/home/sharpwaveripple/bin/nvim.appimage"
+alias nvim="/home/sharpwaveripple/bin/nvim.appimage"
+
+export FREESURFER_HOME=/usr/local/freesurfer
+source $FREESURFER_HOME/SetUpFreeSurfer.sh
+export ANTSPATH=${HOME}/bin/ants/bin/
+export PATH=${ANTSPATH}:$PATH
+
 # added by Anaconda3 installer
-export PATH="/home/sharpwaveripple/anaconda/bin:$PATH"
-. /etc/fsl/fsl.sh
-export TERM=xterm-256color
-
-export PATH="/home/sharpwaveripple/matlab/bin:$PATH"
-
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+export PATH="/home/sharpwaveripple/bin/anaconda/bin:$PATH"
 
 alias R="$(/usr/bin/which R) --no-save"
 alias nautilus="nautilus ."
-
-# Setting fd as the default source for fzf
-export FZF_DEFAULT_COMMAND='fd --type f'
-
-# To apply the command to CTRL-T as well
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
