@@ -1,16 +1,16 @@
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.local/share/nvim/plugged')
 Plug 'tpope/vim-sensible'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-unimpaired'
+Plug 'goldfeld/vim-seek'
 Plug 'scrooloose/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'davidhalter/jedi-vim'
 Plug 'jalvesaq/Nvim-R'
-Plug 'junegunn/fzf'
 Plug 'ajmwagar/vim-deus'
 Plug 'flazz/vim-colorschemes'
-Plug 'easymotion/vim-easymotion'
 Plug 'benmills/vimux'
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
@@ -18,10 +18,12 @@ Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'zchee/deoplete-jedi'
 call plug#end()
 
+" add line numbers for help files
 autocmd FileType help setlocal number
-set number
-set relativenumber
+set number relativenumber
 set clipboard=unnamed
+
+set path+=**
 
 " clear highlighting with esc
 nnoremap <esc> :noh<return><esc>
@@ -44,15 +46,9 @@ nmap <C-l> <C-w>l
 nnoremap <space> za
 vnoremap <space> zf
 
-" fuzzy finding with ctrl-p
-nnoremap <C-p> :FZF<CR>
-
 " move between buffers with tab
 nnoremap <TAB> :bn<CR>
 nnoremap <S-TAB> :bp<CR>
-
-nmap j gj
-nmap k gk
 
 set autowrite
 
@@ -72,7 +68,7 @@ let g:NERDTreeWinPos = "left"
 let NERDTreeShowLineNumbers = 1
 let g:airline_powerline_fonts = 1
 let g:NERDTreeWinSize = 25
-autocmd VimEnter * NERDTree " launch NERDTree on start
+" autocmd VimEnter * NERDTree " launch NERDTree on start
 autocmd VimEnter * wincmd p  " start cursor in editor
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif "close NERDTree if script closes
 
