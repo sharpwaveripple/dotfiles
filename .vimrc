@@ -11,7 +11,8 @@ Plug 'davidhalter/jedi-vim'
 Plug 'jalvesaq/Nvim-R'
 Plug 'ajmwagar/vim-deus'
 Plug 'flazz/vim-colorschemes'
-Plug 'benmills/vimux'
+Plug 'epeli/slimux'
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
@@ -78,6 +79,9 @@ set shiftwidth=4
 set textwidth=79
 set smarttab
 set expandtab
+
+map <Leader>s :SlimuxREPLSendLine<CR>
+vmap <Leader>s :SlimuxREPLSendSelection<CR>
 
 let R_assign_map = "--"
 let R_rconsole_width = 1000
