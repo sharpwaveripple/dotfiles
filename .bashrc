@@ -73,6 +73,12 @@ alias la='ls -A'
 # alias l='ls -CF'
 alias dc='cd'
 alias sl='ls'
+alias sl=ls
+alias ks=ls
+alias js=ls
+alias gf=fg
+alias dc=cd
+alias emcas=emacs
 
 # Prevent file overwrite on stdout redirection
 # Use `>|` to force redirection to an existing file
@@ -92,13 +98,9 @@ bind Space:magic-space # Typing !!<space> will replace the !! with your last com
 bind "set mark-symlinked-directories on"
 bind "set bell-style none"
 
-. /etc/fsl/5.0/fsl.sh
-
-export PATH="/usr/local/MATLAB/R2017a/bin:$PATH"
-
-
-alias R="$(/usr/bin/which R) --no-save"
-
+alias R='$(/usr/bin/which R) --no-save'
+export R_LIBS_USER="/home/jon/lib/R/4.0"
+source ~/.commacd.bash
 
 up() {
   for D in $(seq 1 $1); do 
@@ -112,7 +114,7 @@ extract () {
           *.tar.bz2)   tar xvjf "$1"    ;;
           *.tar.gz)    tar xvzf "$1"    ;;
           *.bz2)       bunzip2 "$1"     ;;
-          *.rar)       unrar x "$1"       ;;
+          *.rar)       unrar x "$1"     ;;
           *.gz)        gunzip "$1"      ;;
           *.tar)       tar xvf "$1"     ;;
           *.tbz2)      tar xvjf "$1"    ;;
