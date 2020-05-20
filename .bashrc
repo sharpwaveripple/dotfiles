@@ -102,13 +102,17 @@ alias R='$(/usr/bin/which R) --no-save'
 export R_LIBS_USER="/home/jon/lib/R/4.0"
 source ~/.commacd.sh
 
+#function up() {
+#  cd $(printf "%0.s../" $(seq 1 $1 ));
+#}
+
 up() {
   for D in $(seq 1 $1); do 
     cd ..
   done
 }
 
-extract () {
+extract() {
   if [ -f "$1" ] ; then
       case "$1" in
           *.tar.bz2)   tar xvjf "$1"    ;;
@@ -128,6 +132,8 @@ extract () {
       echo "'$1' is not a valid file!"
   fi
 }
+
+compress() { env GZIP=-9 tar cvzf "$1" "$2"; }
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
