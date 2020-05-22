@@ -135,6 +135,8 @@ extract() {
 
 compress() { env GZIP=-9 tar cvzf "$1" "$2"; }
 
+update() { sudo apt update && sudo apt -y upgrade; }
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/jon/bin/miniconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
