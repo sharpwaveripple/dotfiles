@@ -139,21 +139,20 @@ update() { sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove; }
 
 dsync() { ~/.emacs.d/bin/doom sync; }
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jon/bin/miniconda/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/jon/bin/miniconda/etc/profile.d/conda.sh" ]; then
-        . "/home/jon/bin/miniconda/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/jon/bin/miniconda/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# # <<< conda initialize <<<
-
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 export LIBGL_ALWAYS_INDIRECT=1
 
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/jon/.anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+  eval "$__conda_setup"
+else
+  if [ -f "/home/jon/.anaconda3/etc/profile.d/conda.sh" ]; then
+    . "/home/jon/.anaconda3/etc/profile.d/conda.sh"
+  else
+    export PATH="/home/jon/.anaconda3/bin:$PATH"
+  fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
