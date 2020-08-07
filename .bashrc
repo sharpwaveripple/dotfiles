@@ -137,8 +137,6 @@ compress() { env GZIP=-9 tar cvzf "$1" "$2"; }
 
 update() { sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove; }
 
-dsync() { ~/.emacs.d/bin/doom sync; }
-
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 export LIBGL_ALWAYS_INDIRECT=1
 
