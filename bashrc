@@ -135,7 +135,7 @@ extract() {
 
 compress() { env GZIP=-9 tar cvzf "$1" "$2"; }
 
-update() { sudo apt update && sudo apt -y upgrade; }
+update() { sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove; }
 
 dsync() { ~/.emacs.d/bin/doom sync; }
 
