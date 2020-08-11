@@ -79,6 +79,7 @@ alias js=ls
 alias gf=fg
 alias dc=cd
 alias emcas=emacs
+alias emasc=emacs
 
 # Prevent file overwrite on stdout redirection
 # Use `>|` to force redirection to an existing file
