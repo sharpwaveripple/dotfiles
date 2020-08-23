@@ -100,7 +100,7 @@ bind "set mark-symlinked-directories on"
 bind "set bell-style none"
 
 alias R='$(/usr/bin/which R) --no-save'
-export R_LIBS_USER="/home/jon/lib/R/4.0"
+export R_LIBS_USER="/home/jon/.lib/R/4.0"
 source ~/.commacd.sh
 
 up() {
