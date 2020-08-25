@@ -136,6 +136,7 @@ update() { sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove; }
 
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 export LIBGL_ALWAYS_INDIRECT=1
+# export DISPLAY=:0
 
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
@@ -151,3 +152,5 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
+
+export PATH="/home/jon/bin/matlab/bin:$PATH"
