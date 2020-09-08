@@ -154,3 +154,4 @@ unset __conda_setup
 # <<< conda initialize <<<
 
 export PATH="/home/jon/bin/matlab/bin:$PATH"
+export PATH="/home/jon/.emacs.d/bin:$PATH"
