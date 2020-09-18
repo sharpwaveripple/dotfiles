@@ -155,3 +155,7 @@ unset __conda_setup
 
 export PATH="/home/jon/bin/matlab/bin:$PATH"
 export PATH="/home/jon/.emacs.d/bin:$PATH"
+
+
+# https://nickymeuleman.netlify.app/blog/gui-on-wsl2-cypress#the-display-variable
+sudo /etc/init.d/dbus start &> /dev/null
