@@ -103,11 +103,7 @@ alias R='$(/usr/bin/which R) --no-save'
 export R_LIBS_USER="/home/jon/.lib/R/4.0"
 source ~/.commacd.sh
 
-up() {
-  for D in $(seq 1 $1); do 
-    cd ..
-  done
-}
+up() { for dir in $(seq 1 $1); do cd ..; done ; }
 
 extract() {
   if [ -f "$1" ] ; then
