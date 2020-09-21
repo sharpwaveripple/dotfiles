@@ -105,6 +105,10 @@ source ~/.commacd.sh
 
 up() { for dir in $(seq 1 $1); do cd ..; done ; }
 
+compress() { tar cf "${1%/}.txz" "${1%/}"; }
+
+update() { sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove; }
+
 extract() {
   if [ -f "$1" ] ; then
       case "$1" in
@@ -128,13 +132,6 @@ extract() {
   fi
 }
 
-
-compress() {
-  echo "Compressing archive ${1%/} as ${1%/}.txz";
-  tar cf "${1%/}.txz" "${1%/}";
-}
-
-update() { sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove; }
 
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 export LIBGL_ALWAYS_INDIRECT=1
