@@ -167,10 +167,6 @@ export PATH="/home/jon/.emacs.d/bin:$PATH"
 sudo /etc/init.d/dbus start &> /dev/null
 
 # https://www.cyberciti.biz/faq/bash-check-if-process-is-running-or-notonlinuxunix/
-if ! pgrep -x emacs >/dev/null; then
-  emacs &
-fi
-
-if ! pgrep -x pcloud >/dev/null; then
-  ~/bin/pcloud &>/dev/null &
-fi
+for i in emacs pcloud; do
+  if ! pgrep -x ${i} >/dev/null; then ${i} &>/dev/null & fi
+done
