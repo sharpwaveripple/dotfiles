@@ -114,14 +114,14 @@ extract() {
       case "$1" in
           *.tar.bz2)   tar xvjf "$1"    ;;
           *.tar.gz)    tar xvzf "$1"    ;;
-          *.tar.xz)    tar xvf "$1"    ;;
+          *.tar.xz)    tar xvf "$1"     ;;
           *.bz2)       bunzip2 "$1"     ;;
           *.rar)       unrar x "$1"     ;;
           *.gz)        gunzip "$1"      ;;
           *.tar)       tar xvf "$1"     ;;
           *.tbz2)      tar xvjf "$1"    ;;
           *.tgz)       tar xvzf "$1"    ;;
-          *.txz)       tar xvf "$1"    ;;
+          *.txz)       tar xvf "$1"     ;;
           *.zip)       unzip "$1"       ;;
           *.Z)         uncompress "$1"  ;;
           *.7z)        7z x "$1"        ;;
@@ -137,24 +137,9 @@ export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/nu
 export LIBGL_ALWAYS_INDIRECT=1
 # export DISPLAY=:0
 
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jon/.anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-  eval "$__conda_setup"
-else
-  if [ -f "/home/jon/.anaconda3/etc/profile.d/conda.sh" ]; then
-    . "/home/jon/.anaconda3/etc/profile.d/conda.sh"
-  else
-    export PATH="/home/jon/.anaconda3/bin:$PATH"
-  fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-
-export PATH="/home/jon/bin/matlab/bin:$PATH"
-export PATH="/home/jon/.emacs.d/bin:$PATH"
-
+export PATH="~/.anaconda3/bin:$PATH"
+export PATH="~/bin/matlab/bin:$PATH"
+export PATH="~/.emacs.d/bin:$PATH"
 
 # https://nickymeuleman.netlify.app/blog/gui-on-wsl2-cypress#the-display-variable
 sudo /etc/init.d/dbus start &> /dev/null
