@@ -167,19 +167,10 @@ export PATH="/home/jon/.emacs.d/bin:$PATH"
 sudo /etc/init.d/dbus start &> /dev/null
 
 # https://www.cyberciti.biz/faq/bash-check-if-process-is-running-or-notonlinuxunix/
-SERVICE="emacs"
-if pgrep -x "$SERVICE" >/dev/null; then
-  echo "$SERVICE is running"
-else
-  echo "$SERVICE stopped"
+if ! pgrep -x emacs >/dev/null; then
   emacs &
 fi
 
-
-SERVICE="pcloud"
-if pgrep -x "$SERVICE" >/dev/null; then
-  echo "$SERVICE is running"
-else
-  echo "$SERVICE stopped"
-  ~/bin/pcloud &
+if ! pgrep -x pcloud >/dev/null; then
+  ~/bin/pcloud &>/dev/null &
 fi
