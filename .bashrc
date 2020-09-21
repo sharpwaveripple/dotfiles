@@ -137,9 +137,9 @@ export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/nu
 export LIBGL_ALWAYS_INDIRECT=1
 # export DISPLAY=:0
 
-export PATH="~/.anaconda3/bin:$PATH"
-export PATH="~/bin/matlab/bin:$PATH"
-export PATH="~/.emacs.d/bin:$PATH"
+export PATH="${HOME}/.anaconda3/bin:$PATH"
+export PATH="${HOME}/bin/matlab/bin:$PATH"
+export PATH="${HOME}/.emacs.d/bin:$PATH"
 
 # https://nickymeuleman.netlify.app/blog/gui-on-wsl2-cypress#the-display-variable
 sudo /etc/init.d/dbus start &> /dev/null
