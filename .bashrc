@@ -132,7 +132,11 @@ extract() {
   fi
 }
 
-compress() { env GZIP=-9 tar cvzf "$1" "$2"; }
+
+compress() {
+  echo "Compressing archive ${1%/} as ${1%/}.txz";
+  tar cf "${1%/}.txz" "${1%/}";
+}
 
 update() { sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove; }
 
