@@ -115,7 +115,7 @@ compress() {
     if [[ -d "$HOME/desktop/" ]]; then
         printf "exists\n"
         printf "Moving %s to $HOME/desktop/... " "$ar"
-        mv "$ar" $HOME/desktop/
+        mv "$ar" "$HOME/desktop/"
         printf "done\n"
     else
         printf "no\n"
