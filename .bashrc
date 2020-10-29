@@ -122,34 +122,36 @@ compress() {
     fi
 }
 
-
-update() { sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove; }
-
 extract() {
-  if [ -f "$1" ] ; then
-      case "$1" in
-          *.tar.bz2)   tar xjf "$1"    ;;
-          *.tar.gz)    tar xzf "$1"    ;;
-          *.tar.xz)    tar xf "$1"     ;;
-          *.bz2)       bunzip2 "$1"     ;;
-          *.rar)       unrar x "$1"     ;;
-          *.gz)        gunzip "$1"      ;;
-          *.tar)       tar xvf "$1"     ;;
-          *.tbz2)      tar xvjf "$1"    ;;
-          *.tgz)       tar xvzf "$1"    ;;
-          *.txz)       tar xvf "$1"     ;;
-          *.zip)       unzip "$1"       ;;
-          *.Z)         uncompress "$1"  ;;
-          *.7z)        7z x "$1"        ;;
-          *)           echo "don't know how to extract '$1'..." ;;
-      esac
-      echo "Extracted '$1', removing archive..."
-      rm "$1"
-  else
-      echo "'$1' is not a valid file!"
-  fi
+    if [ -f "$1" ] ; then
+        printf "Extracting %s ... " "$1"
+        case "$1" in
+            *.tar.bz2)   tar xjf "$1"    ;;
+            *.tar.gz)    tar xzf "$1"    ;;
+            *.tar.xz)    tar xf "$1"     ;;
+            *.bz2)       bunzip2 "$1"     ;;
+            *.rar)       unrar x "$1"     ;;
+            *.gz)        gunzip "$1"      ;;
+            *.tar)       tar xf "$1"     ;;
+            *.tbz2)      tar xjf "$1"    ;;
+            *.tgz)       tar xzf "$1"    ;;
+            *.txz)       tar xf "$1"     ;;
+            *.zip)       unzip "$1"       ;;
+            *.Z)         uncompress "$1"  ;;
+            *.7z)        7z x "$1"        ;;
+            *)           echo "don't know how to extract '$1'..." ;;
+        esac
+        printf "done\n"
+        printf "Removing archive... "
+        rm "$1"
+        printf "done\n"
+    else
+        echo "$1 is not a valid file!"
+    fi
 }
 
+
+update() { sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove; }
 
 export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/null):0
 export LIBGL_ALWAYS_INDIRECT=1
