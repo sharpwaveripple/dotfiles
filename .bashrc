@@ -105,7 +105,23 @@ source ~/.commacd.sh
 
 up() { for dir in $(seq 1 $1); do cd ..; done ; }
 
-compress() { tar cf "${1%/}.txz" "${1%/}"; }
+compress() {
+    in="${1%/}"
+    ar="${1%/}.txz"
+    printf "Compressing %s to %s... " "$in" "$ar"
+    tar cf "${1%/}.txz" "${1%/}"
+    printf "done\n"
+    printf "Checking for %s/desktop... " "$HOME"
+    if [[ -d "$HOME/desktop/" ]]; then
+        printf "exists\n"
+        printf "Moving %s to $HOME/desktop/... " "$ar"
+        mv "$ar" $HOME/desktop/
+        printf "done\n"
+    else
+        printf "no\n"
+    fi
+}
+
 
 update() { sudo apt update && sudo apt -y upgrade && sudo apt -y autoremove; }
 
