@@ -124,7 +124,7 @@ compress() {
 
 extract() {
     if [ -f "$1" ] ; then
-        printf "Extracting %s ... " "$1"
+        printf "Extracting %s... " "$1"
         case "$1" in
             *.tar.bz2)   tar xjf "$1"    ;;
             *.tar.gz)    tar xzf "$1"    ;;
