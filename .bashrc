@@ -127,6 +127,8 @@ extract() {
           *.7z)        7z x "$1"        ;;
           *)           echo "don't know how to extract '$1'..." ;;
       esac
+      echo "Extracted '$1', removing archive..."
+      rm "$1"
   else
       echo "'$1' is not a valid file!"
   fi
