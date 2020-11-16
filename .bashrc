@@ -157,6 +157,7 @@ export DISPLAY=$(awk '/nameserver / {print $2; exit}' /etc/resolv.conf 2>/dev/nu
 export LIBGL_ALWAYS_INDIRECT=1
 # export DISPLAY=:0
 
+export PATH="${HOME}/bin:$PATH"
 export PATH="${HOME}/.anaconda3/bin:$PATH"
 export PATH="${HOME}/bin/matlab/bin:$PATH"
 export PATH="${HOME}/.emacs.d/bin:$PATH"
