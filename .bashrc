@@ -158,6 +158,7 @@ export LIBGL_ALWAYS_INDIRECT=1
 # export DISPLAY=:0
 
 export PATH="${HOME}/bin:$PATH"
+export PATH="${HOME}/bin/utils:$PATH"
 export PATH="${HOME}/.anaconda3/bin:$PATH"
 export PATH="${HOME}/bin/matlab/bin:$PATH"
 export PATH="${HOME}/.emacs.d/bin:$PATH"
